@@ -6,31 +6,20 @@ def solution(msg):
         dic_idx += 1
         dic[chr(i)] = dic_idx
 
-    # 문자열을 순회하면서 사전 색인 생성
-    N = len(msg)
-    msg_idx = 0
-    search_len = 1
-    move = 0
+    # 문자열 순회하면서 출력
     answer = []
-    while True:
-        w = msg[msg_idx:msg_idx + search_len]
-        # print(f'msg_idx: {msg_idx} | w: {w} | msg_idx: {msg_idx} | search_len: {search_len} | move: {move}')
+    start_idx, search_len = 0, 1
+    while start_idx + search_len < len(msg) + 1:
+        w = msg[start_idx:start_idx + search_len]
         if w in dic:
+            next_w = msg[start_idx:start_idx + search_len + 1]
             search_len += 1
-            move += 1
-            if dic[w] not in answer:
+            if next_w not in dic or w == next_w:
                 answer.append(dic[w])
-            if msg_idx == N - 1:
-                break
         else:
             dic_idx += 1
             dic[w] = dic_idx
-            msg_idx += move
+            start_idx += search_len - 1
             search_len = 1
-            move = 0
 
-    # print(dic)
     return answer
-
-
-print(solution('KAKAO'))
