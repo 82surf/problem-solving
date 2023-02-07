@@ -3,8 +3,6 @@ from datetime import datetime
 
 
 def solution(fees, records):
-    car_records = {}
-
     # 누적 주차 시간(초)를 입력받으면 주차 요금 반환
     def calc_fee(sec):
         default_time, default_fee, unit_time, unit_fee = fees
