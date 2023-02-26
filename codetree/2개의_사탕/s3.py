@@ -80,7 +80,7 @@ def BFS():
                 result = cnt + 1
                 return result if result < 11 else -1
             else:
-                q.append((next_red, next_blue, deepcopy(copy_box), cnt + 1, d))
+                q.append((next_red, next_blue, copy_box, cnt + 1, d))
     return -1
 
 
