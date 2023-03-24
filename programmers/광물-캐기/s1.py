@@ -1,3 +1,5 @@
+# 완전탐색(순열)풀이
+# 최대로 걸린 Test: 통과 (8069.48ms, 10.4MB)
 # 다이아, 철, 돌 => 0, 1, 2로 변환
 def mineral_to_num(mineral):
     dic = {'diamond': 0, 'iron': 1, 'stone': 2}
