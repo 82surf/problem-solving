@@ -1,0 +1,9 @@
+-- 옵션이 포함된 자동차
+-- 자동차 종류 별로 group
+-- count
+
+SELECT CAR_TYPE, COUNT(*) AS CARS
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS LIKE '%가죽시트%' OR OPTIONS LIKE '%열선시트%' OR OPTIONS LIKE '%통풍시트%'
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE;
