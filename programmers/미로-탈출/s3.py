@@ -37,5 +37,3 @@ def solution(maps):
         for j in range(W):
             if maps[i][j] == 'S':
                 return BFS((i, j), maps, H, W)
-
-    return BFS(S, maps, H, W)
