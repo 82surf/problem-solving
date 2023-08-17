@@ -1,0 +1,19 @@
+--자동차 종류: 세단
+--10월에 대여 시작
+--자동차 ID 리스트 출력
+--중복 제거, 자동차 ID 기준 내림차순
+--
+--10월 대여 시작 히스토리 SELECT, CAR_ID로 GROUP BY
+--CAR 테이블과 JOIN
+
+SELECT A.CAR_ID
+FROM CAR_RENTAL_COMPANY_CAR AS A
+JOIN (
+    SELECT CAR_ID
+    FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
+    WHERE START_DATE > '2022-10-01'
+    GROUP BY CAR_ID
+) AS B
+ON A.CAR_ID = B.CAR_ID
+WHERE A.CAR_TYPE = '세단'
+ORDER BY A.CAR_ID DESC;
