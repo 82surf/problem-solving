@@ -1,2 +1,8 @@
+# Intellij Metadata
 .idea
+
+# MacOS Finder Metadata
 .DS_store
+
+# Java Compile Directory
+**/out/
