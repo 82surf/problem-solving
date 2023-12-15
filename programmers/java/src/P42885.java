@@ -1,5 +1,4 @@
 // 구명보트
-// 시간초과
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -7,18 +6,21 @@ import java.util.stream.Collectors;
 public class P42885 {
     public int solution(int[] people, int limit) {
         int answer = 0;
-        List<Integer> peopleList = Arrays.stream(people).boxed().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
-        Deque<Integer> deque = new ArrayDeque<>(peopleList);
 
-        while (!deque.isEmpty()) {
-            if (deque.size() >= 2 && deque.getFirst() + deque.getLast() <= limit) {
-                deque.removeFirst();
-                deque.removeLast();
-                answer += 1;
-            } else {
-                deque.removeLast();
-                answer += 1;
+        Arrays.sort(people);
+        int left = 0;
+        int right = people.length - 1;
+
+        while (left <= right) {
+            int minVal = people[left];
+            int maxVal = people[right];
+            int diff = right - left;
+
+            if (diff >= 1 && minVal + maxVal <= limit) {
+                left += 1;
             }
+            right -= 1;
+            answer += 1;
         }
 
         return answer;
